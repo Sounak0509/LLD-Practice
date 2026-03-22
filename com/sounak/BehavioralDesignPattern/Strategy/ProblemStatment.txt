@@ -1,0 +1,33 @@
+**Problems this creates:**
+```
+1. Violates Open/Closed Principle →
+   class should be open for extension, closed for modification
+
+2. Every change risks breaking existing working code
+
+3. Code becomes hard to test →
+   you can't test one payment method in isolation
+
+4. Hard to maintain →
+   one giant class handling everything
+
+What Strategy Pattern does:
+Extract each behavior into its own class behind a common interface:
+
+**Interview summary — say exactly this:**
+
+> *"Strategy pattern is used when we have multiple algorithms or behaviors that can be swapped at runtime.
+It solves the problem of growing if/else chains that violate the Open/Closed Principle.
+Instead of modifying existing code every time a new behavior is added, we encapsulate each behavior in its
+own class behind a common interface. This makes the code easier to extend, test, and maintain.
+A classic example is a payment system where each payment method is a separate strategy."*
+
+---
+
+**Key terms to use in interview:**
+```
+✅ Open/Closed Principle
+✅ Encapsulate behavior
+✅ Swappable at runtime
+✅ Eliminates if/else chains
+✅ Easy to extend without modifying existing code
