@@ -1,0 +1,36 @@
+The Problem:
+Imagine you have a YouTube channel.
+When you upload a video, all your subscribers should get notified.
+Without Observer pattern:
+public class YouTubeChannel {
+    public void uploadVideo(String title) {
+        // notify subscriber 1
+        subscriber1.update(title);
+        // notify subscriber 2
+        subscriber2.update(title);
+        // notify subscriber 3
+        subscriber3.update(title);
+        // what if 1000 subscribers? 😱
+    }
+}
+```
+
+**Problems this creates:**
+```
+1. Channel shouldn't know about each subscriber personally
+2. Subscribers can join/leave anytime → hard to manage
+3. Tightly coupled → Channel and Subscribers depend on each other
+4. Not scalable → 1000 subscribers = 1000 lines of code
+```
+
+---
+
+**What Observer Pattern says:**
+> Let objects **subscribe** and **unsubscribe** to events. When event happens,
+**automatically notify** all subscribers.
+```
+Publisher (Subject)  →  maintains list of subscribers
+                     →  notifies all when something changes
+
+Subscribers (Observer) → register themselves
+                       → react when notified
