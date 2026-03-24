@@ -1,0 +1,29 @@
+The Problem:
+Imagine you're making different types of tea — Green Tea and Black Tea. The process is mostly the same:
+1. Boil water
+2. Brew (different for each tea!)
+3. Pour in cup
+4. Add condiments (different for each tea!)
+Steps 1 and 3 are identical for every tea. Steps 2 and 4 are different.
+Without Template Method:
+java
+class GreenTea {
+    void boilWater() { ... }    // duplicate!
+    void brew() { ... }          // different
+    void pourInCup() { ... }    // duplicate!
+    void addCondiments() { ... } // different
+}
+
+class BlackTea {
+    void boilWater() { ... }    // duplicate!
+    void brew() { ... }          // different
+    void pourInCup() { ... }    // duplicate!
+    void addCondiments() { ... } // different
+}
+```
+
+**Problem:**
+```
+❌ Code duplication → boilWater, pourInCup repeated everywhere
+❌ If boilWater changes → update in every class!
+❌ No enforced structure → someone might skip a step

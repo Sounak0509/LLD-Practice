@@ -1,4 +1,4 @@
-package Observer.src;
+package com.sounak.BehavioralDesignPattern.Observer.src;
 
 public class Subscribers implements Observer {
     private final String name;
