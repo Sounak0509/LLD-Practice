@@ -1,4 +1,4 @@
-package Observer.src;
+package com.sounak.BehavioralDesignPattern.Observer.src;
 
 public class App {
 

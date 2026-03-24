@@ -1,0 +1,52 @@
+The Problem:
+Imagine you have a Smart Home system with lights, fans, AC:
+javapublic class RemoteControl {
+    public void pressButton(String device) {
+        if (device.equals("LIGHT")) {
+            light.turnOn();
+        } else if (device.equals("FAN")) {
+            fan.turnOn();
+        } else if (device.equals("AC")) {
+            ac.turnOn();
+        }
+    }
+}
+```
+
+**Problems:**
+```
+❌ RemoteControl knows too much about each device
+❌ Adding new device → modify RemoteControl again
+❌ No UNDO functionality → can't turn back off!
+❌ Tightly coupled → RemoteControl depends on every device
+```
+
+---
+
+**What Command Pattern says:**
+> Wrap each request/action into its own **command object**. The remote doesn't know WHAT it's doing — it just executes a command!
+```
+Remote → just calls execute()
+           doesn't know if it's light, fan or AC!
+```
+
+---
+
+**Real world analogies:**
+```
+Restaurant   → Waiter takes ORDER (command)
+               Chef executes it
+               Waiter doesn't cook!
+
+Remote       → Button press = Command
+               Device executes it
+
+Text Editor  → Every action is a command
+               Ctrl+Z = undo last command!
+```
+
+---
+
+**Key benefit that makes it unique:**
+```
+✅ UNDO functionality → every command can be reversed!
