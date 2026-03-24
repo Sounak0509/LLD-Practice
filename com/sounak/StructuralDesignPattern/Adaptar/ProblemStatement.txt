@@ -1,0 +1,42 @@
+Imagine you have a MediaPlayer that plays MP3. Now you want it to play MP4 and VLC too —
+but those have completely different interfaces!
+java// Your existing interface
+public interface MediaPlayer {
+    void play(String filename);
+}
+
+// New format — completely different interface!
+public interface AdvancedMediaPlayer {
+    void playMP4(String filename);
+    void playVLC(String filename);
+}
+```
+
+These two interfaces are **incompatible** — just like round and flat pins! 🎯
+
+---
+
+**What Adapter says:**
+> Create a middle class that **translates** one interface to another — without changing existing code!
+```
+MediaPlayer → Adapter → AdvancedMediaPlayer
+round pin   → adapter → flat pin
+```
+
+---
+
+**When to use:**
+```
+✅ Two incompatible interfaces need to work together
+✅ Can't modify existing code
+✅ Third party library has different interface
+✅ Legacy code integration
+```
+
+---
+
+**Real world examples:**
+```
+Power adapter     → round to flat pin
+HDMI to VGA       → convert video formats
+Java Arrays.asList → converts Array to List

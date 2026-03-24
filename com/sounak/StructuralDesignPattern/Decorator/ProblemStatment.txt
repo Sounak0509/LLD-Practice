@@ -1,0 +1,39 @@
+Decorator Pattern — Problem it solves:
+Imagine a Coffee shop. Customers can add extras to basic coffee:
+Basic Coffee          → ₹50
+Basic Coffee + Milk   → ₹60
+Basic Coffee + Sugar  → ₹65
+Basic Coffee + Milk + Sugar + Caramel → ₹80
+Without Decorator:
+javaclass BasicCoffee { }
+class CoffeeWithMilk { }
+class CoffeeWithSugar { }
+class CoffeeWithMilkAndSugar { }
+class CoffeeWithMilkAndSugarAndCaramel { } // 😱 explodes!
+```
+
+**Problems:**
+```
+❌ 5 extras = 32 possible combinations!
+❌ Every new combination = new class
+❌ Impossible to maintain
+
+What Decorator says:
+
+Wrap objects inside other objects to add behavior dynamically at runtime!
+
+javaCoffee coffee = new BasicCoffee();           // ₹50
+coffee = new MilkDecorator(coffee);          // ₹50+₹10
+coffee = new SugarDecorator(coffee);         // ₹60+₹5
+coffee = new CaramelDecorator(coffee);       // ₹65+₹15
+```
+
+Like **layers of an onion** 🧅 — each layer adds something!
+
+---
+
+**When to use:**
+```
+✅ Combination explosion problem
+✅ Add features dynamically at runtime
+✅ Can't or don't want to modify original class
