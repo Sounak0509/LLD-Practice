@@ -1,0 +1,28 @@
+The Problem:
+Imagine you're building a Home Theatre System. To watch a movie you need to:
+java
+public class Main {
+    public static void main(String[] args) {
+        DVDPlayer dvd = new DVDPlayer();
+        Projector projector = new Projector();
+        SoundSystem sound = new SoundSystem();
+        Lights lights = new Lights();
+
+        // Just to watch a movie!
+        lights.dim(10);
+        projector.on();
+        projector.setInput(dvd);
+        sound.on();
+        sound.setVolume(8);
+        dvd.on();
+        dvd.play("Inception");
+    }
+}
+```
+
+**Problems:**
+```
+❌ Client knows about EVERY subsystem
+❌ Too many steps just to watch a movie
+❌ Tightly coupled — client depends on 4 classes
+❌ What if subsystem changes? Client breaks!
